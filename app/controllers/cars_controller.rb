@@ -3,7 +3,7 @@ class CarsController < ApplicationController
 
   # GET /cars
   # GET /cars.json
-  # Comment #
+  # Comment # 
   def index
     @cars = Car.all
   end
