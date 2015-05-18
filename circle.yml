@@ -6,4 +6,4 @@ deployment:
       - heroku run rake db:migrate --app ionutsv
 machine:
   ruby:
-      version: 2.2.2p95
+      version: 2.2.0
