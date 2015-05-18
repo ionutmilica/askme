@@ -4,3 +4,6 @@ deployment:
     commands:
       - git push git@heroku.com:ionutsv.git $CIRCLE_SHA1:refs/heads/master
       - heroku run rake db:migrate --app ionutsv
+machine:
+  ruby:
+      version: 2.2.2p95
