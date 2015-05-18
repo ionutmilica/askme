@@ -4,7 +4,14 @@ Rails.application.routes.draw do
 
   scope '/api' do
     scope '/v1' do
-      resources :sessions
+      # Token routes
+      scope '/token' do
+        as :user do
+          post 'create', to: 'sessions#create'
+          delete 'destroy', to: 'sessions#destroy'
+        end
+      end
+      #
     end
   end
   root 'home#index'
