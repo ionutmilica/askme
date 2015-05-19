@@ -1,6 +1,5 @@
 class SessionsController < Devise::SessionsController
-  skip_before_filter :authenticate_user!, :only => [:create, :new]
-  #skip_authorization_check only: [:create, :failure, :show_current_user, :options, :new] <- If I'll use cancan
+  skip_before_filter :authenticate_user!, :only => [:create]
   respond_to :json
 
   def create
@@ -9,7 +8,7 @@ class SessionsController < Devise::SessionsController
         resource = resource_from_credentials
         return invalid_login_attempt unless resource
         if resource.valid_password?(params[:password])
-          render :json => { user: { email: resource.email, :auth_token => resource.auth_token } }, success: true, status: :created
+          render :json => { user: { username: resource.username, email: resource.email, :auth_token => resource.auth_token } }, success: true, status: :created
         else
           invalid_login_attempt
         end
@@ -38,7 +37,7 @@ class SessionsController < Devise::SessionsController
   end
 
   def resource_from_credentials
-    data = { email: params[:email] }
+    data = { username: params[:username] }
     if res = resource_class.find_for_database_authentication(data)
       if res.valid_password?(params[:password])
         res

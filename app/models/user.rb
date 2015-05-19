@@ -1,20 +1,24 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :validatable
   before_save :ensure_authentication_token!
+
+  attr_accessor :login
+
+  validates :username, presence: true, length: {maximum: 255}, uniqueness: { case_sensitive: false }, format: { with: /\A[a-zA-Z0-9]*\z/, message: "may only contain letters and numbers." }
+
+  has_many :questions, :foreign_key => 'to'
+
+  def self.find_first_by_auth_conditions(warden_conditions)
+    conditions = warden_conditions.dup
+    if username = conditions.delete(:username)
+      where(conditions).where(["lower(username) = :value", { :value =>username.downcase }]).first
+    else
+      where(conditions).first
+    end
+  end
 
   def generate_secure_token_string
     SecureRandom.urlsafe_base64(25).tr('lIO0', 'sxyz')
-  end
-
-  def password_presence
-    password.present? && password_confirmation.present?
-  end
-
-  def password_match
-    password == password_confirmation
   end
 
   def ensure_authentication_token!
