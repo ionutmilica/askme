@@ -14,7 +14,10 @@ class Question < ActiveRecord::Base
     params[:replied_at] = Time.now
 
     question = self.mine user_id, question_id
-    question.update!(params)
+    if question
+      question.update!(params)
+    end
+
     question
   end
 end
