@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20150519172005) do
 
-  create_table "questions", force: :cascade do |t|
+  create_table "questions.html.erb", force: :cascade do |t|
     t.integer  "from"
     t.integer  "to"
     t.string   "question"
