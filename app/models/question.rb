@@ -6,6 +6,10 @@ class Question < ActiveRecord::Base
     where(to: user_id).where(id: question_id).first
   end
 
+  def self.answered
+    where.not(reply: nil, replied_at: nil)
+  end
+
   def self.unanswered
     where(replied_at: nil, reply: nil)
   end

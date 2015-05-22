@@ -6,7 +6,6 @@ class User < ActiveRecord::Base
   has_many :send_questions, :class_name => 'Question', :foreign_key => 'from', :dependent => :nullify
   has_many :received_questions, :class_name => 'Question', :foreign_key => 'to', :dependent => :nullify
 
-
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if username = conditions.delete(:username)

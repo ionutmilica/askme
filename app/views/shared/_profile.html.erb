@@ -1,0 +1,67 @@
+<div class="row user-information">
+  <div class="col-md-2">
+    <%= image_tag 'friend.jpg', :class => 'profile-picture' %>
+  </div>
+  <div class="col-md-6">
+    <strong class="profile-username"><%= @user.fullname %></strong>
+    <span class="text-muted">| @<%= @user.username %></span>
+    <span class="display-block"><%= @user.location %></span>
+
+    <p class="text-muted">
+      <em>
+        <%= @user.description %>
+      </em>
+    </p>
+
+  </div>
+  <div class="col-md-4">
+    <ul class="list-inline text-right trafic-info">
+      <li>
+        <a href="<%= url_for profile_answers_path %>">
+          <strong>3584</strong>
+          <span class="display-block">answers</span>
+        </a>
+      </li>
+      <li>
+        <a href="<%= url_for profile_best_path %>">
+          <strong>6208</strong>
+          <span class="display-block">likes</span>
+        </a>
+      </li>
+      <li>
+        <a href="<%= url_for profile_gifts_path %>">
+          <strong>2</strong>
+          <span class="display-block">gifts</span>
+        </a>
+      </li>
+    </ul>
+    <div class="actions text-right">
+      <button class="btn btn-default"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span></button>
+      <button class="btn btn-success">Follow</button>
+      <!-- <button class="btn btn-default">Unfollow</button> -->
+      <div class="drastic">
+        <a href="#"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>Block</a>
+        <a href="#"><span class="glyphicon glyphicon-flag" aria-hidden="true"></span>Report</a>
+      </div>
+    </div>
+  </div>
+</div> <!-- end of user-information -->
+
+<div class="row post-question">
+  <div class="col-md-12">
+    <h4><strong>Amaze me</strong></h4>
+    <form action="#">
+      <div class="panel panel-default">
+        <label for="question" class="sr-only">Question:</label>
+        <textarea name="" id="question" name="question"></textarea>
+        <div class="panel-footer clearfix">
+          <span class="pull-left letters-left">300</span>
+          <div class="pull-right">
+            <label class="check"><input type="checkbox" name="anonymous-question">Anonymous Question</label>
+            <button type="submit" class="btn btn-primary">Ask</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div> <!-- end of post-question -->

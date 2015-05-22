@@ -1,4 +1,30 @@
-<% @unanswered.each do |question| %>
-   <% question.id %> <%= question.question %> posted by <%= question.sender.username %>
-    <br/>
-<% end %>
+<div class="container main-content questions">
+  <div class="row answers">
+    <div class="col-md-12 clearfix">
+      <button class="btn btn-primary btn-sm pull-right ocassional-question">Get random question</button>
+      <h4><strong>questions</strong></h4>
+      <ul class="list-unstyled">
+        <% @unanswered.each do |question| %>
+        <li>
+          <button type="button" class="close" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+          <p>
+            <strong><%= question.question %></strong>
+            <a href="<%= url_for profile_answers_path question.sender.username %>"><%= question.sender.username %></a>
+          </p>
+          <div class="meta">
+            <span class="text-muted">acum 3 luni</span>
+          </div>
+            <span class="actions">
+              <%= link_to 'Answer', account_answer_path(question.id) %>
+            </span>
+        </li>
+        <% end %>
+        <li>
+          <%= link_to ("<span class='glyphicon glyphicon-trash'></span>Delete all questions <span>(#{@unanswered.size})</span>").html_safe,
+                  account_delete_questions_path, :method => :delete %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

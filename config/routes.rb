@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     post 'questions/:id/answer', to: 'account#do_answer', as: 'do_account_answer'
     get 'questions/:id', to: 'account#question', as: 'account_question'
     get 'questions', to: 'account#questions', as: 'account_questions'
+    delete 'questions', to: 'account#delete_questions', as: 'account_delete_questions'
+
 
     get 'follows', to: 'account#follows', as: 'account_follow'
     get 'search', to: 'account#search', as: 'account_search'
@@ -19,11 +21,11 @@ Rails.application.routes.draw do
   end
 
   # Users profile
-  get ':username/answer/:id', to: 'profile#answer', as: 'users_answer'
-  get ':username/gifts', to: 'profile#gifts', as: 'users_gifts'
-  get ':username/best', to: 'profile#best', as: 'users_bets'
-  post ':username/follow', to: 'profile#follow', as: 'users_follow'
-  get ':username', to: 'profile#answers', as: 'users_profile'
+  get ':username/answer/:id', to: 'profile#answer', as: 'profile_answer'
+  get ':username/gifts', to: 'profile#gifts', as: 'profile_gifts'
+  get ':username/best', to: 'profile#best', as: 'profile_best'
+  post ':username/follow', to: 'profile#follow', as: 'profile_follow'
+  get ':username', to: 'profile#answers', as: 'profile_answers'
 
   root 'home#home'
 end

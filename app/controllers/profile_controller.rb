@@ -1,7 +1,8 @@
 class ProfileController < ApplicationController
+  before_action :set_user
 
   def answers
-    @user = User.find_by_username params[:username]
+    @answers = @user.received_questions.answered
   end
 
   def best
@@ -11,4 +12,9 @@ class ProfileController < ApplicationController
   def gifts
 
   end
+
+  protected
+    def set_user
+      @user = User.find_by_username params[:username]
+    end
 end

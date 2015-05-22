@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 clearfix">
-        <a class="navbar-brand" href="index.html">ask<span>.me</span></a>
+        <a class="navbar-brand" href="<%= url_for account_wall_path %>">ask<span>.me</span></a>
         <div class="notifications navbar-left">
           <ul class="list-inline">
             <li>
@@ -11,10 +11,12 @@
               </button>
             </li>
             <li>
-              <button class="btn btn-primary btn-sm">
-                <span class="glyphicon glyphicon-question-sign"></span>
-                <span class="badge">2</span>
-              </button>
+              <a href="<%= url_for account_questions_path %>">
+                  <button class="btn btn-primary btn-sm">
+                    <span class="glyphicon glyphicon-question-sign"></span>
+                    <span class="badge">2</span>
+                  </button>
+              </a>
             </li>
             <li>
               <button class="btn btn-primary btn-sm">
@@ -26,8 +28,10 @@
         <nav class="navbar-right logged-in-nav">
           <ul class="list-inline">
             <li><a href="#">Home</a></li>
-            <li><a href="questions.html">Questions <span>(2)</span></a></li>
-            <li class="active"><a href="#">Profile</a></li>
+            <li><a href="<%= url_for account_questions_path %>">Questions <span>(2)</span></a></li>
+            <li class="active">
+              <%= link_to 'Profile', profile_answers_path(current_user.username) %>
+            </li>
             <li><a href="#">Friends</a></li>
             <li><a href="#">Search</a></li>
             <li><a href="#">Settings</a></li>

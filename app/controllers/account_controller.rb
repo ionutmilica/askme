@@ -8,6 +8,9 @@ class AccountController < ApplicationController
     @unanswered = current_user.received_questions.unanswered
   end
 
+  def delete_questions
+    redirect_to account_questions_path
+  end
 
   def answer
     @question = Question.mine current_user.id, params[:id]
