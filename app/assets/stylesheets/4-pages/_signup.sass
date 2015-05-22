@@ -1,0 +1,60 @@
+.create-account
+
+	.title
+		padding-bottom: 15px
+		border-bottom: 1px solid #eee
+
+	.register-form
+		border-right: 1px solid #eee
+		margin-bottom: 20px
+		padding-right: 40px
+
+		&:after
+			content: "OR"
+			position: absolute
+			top: 90px
+			right: -20px
+			padding: 10px 10px
+			background: #fff
+			color: #aaa
+
+	.btn-success
+		margin: 20px 0 15px 0
+
+	.help-block
+		font-size: 12px
+
+	.form-group .help-block
+		font-size: 11px
+
+
+.social-media-registration
+	padding-top: 20px
+	padding-left: 40px !important
+
+	ul
+		list-style: none
+		padding: 0px
+
+		li
+			margin-bottom: 20px
+
+
+@media only screen and (max-width: 993px)
+	.create-account
+		.register-form
+			padding-right: 15px
+			border-right: none
+			border-bottom: 1px solid #eee
+			
+			&:after
+				position: static
+				display: block
+				width: 40px
+				margin: 0px auto -20px
+
+			.padding-i-0
+				padding: 0px 15px !important
+
+	.social-media-registration
+		padding-left: 15px !important

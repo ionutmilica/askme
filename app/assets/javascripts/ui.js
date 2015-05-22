@@ -1,0 +1,1 @@
+$(document).ready(function(){var n=$(".login-modal"),o=!1;$(".btn-login").on("click",function(e){e.preventDefault(),n.removeClass("hidden").hide().fadeIn(250),n.hover(function(){o=!0},function(){o=!1}),$("body").on("mouseup",function(){o||n.hide()})})});

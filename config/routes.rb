@@ -25,5 +25,5 @@ Rails.application.routes.draw do
   post ':username/follow', to: 'users#profile', as: 'users_follow'
   get ':username', to: 'users#profile', as: 'users_profile'
 
-  root 'home#index'
+  root 'home#home'
 end

@@ -1,0 +1,66 @@
+.login-modal
+	width: 280px
+	height: 300px // click under modal quick bug fix
+	position: fixed
+	margin: 0 auto
+	margin-right: 19%
+	top: 55px
+	right: 0px !important
+	left: 0
+	bottom: 0
+
+	.arrow
+		width: 0px
+		height: 0px
+		float: right
+		position: relative
+		top: 3px
+		right: 20px
+		border-left: 15px solid transparent
+		border-right: 15px solid transparent
+		border-bottom: 15px solid $border-color
+
+	.content
+		padding: 15px
+		border-radius: 10px
+		border: 5px solid $border-color
+		text-align: center
+		background: #fff
+		clear: both
+		box-shadow: 1px 1px 10px #000
+
+		&:before
+			content: " "
+			width: 0px
+			height: 0px
+			position: absolute
+			top: 10px
+			right: 23px
+			border-left: 12px solid transparent
+			border-right: 12px solid transparent
+			border-bottom: 13px solid #fff
+
+		form 
+			.form-group
+
+				&:first-of-type
+					margin-bottom: -1px !important
+
+				&:last-of-type
+					margin-bottom: 8px
+
+				input
+					padding: 20px 10px
+					background: #F7F7F7
+
+			button
+				width: 100%
+				margin-bottom: 15px
+				padding: 10px 0px
+
+		.social-media-login
+			h5
+				color: gray
+
+			a
+				font-size: 12px

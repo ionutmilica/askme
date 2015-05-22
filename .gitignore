@@ -18,3 +18,4 @@ rerun.txt
 *.bowerrc
 bower.json
 .powenv
+public/assets/**

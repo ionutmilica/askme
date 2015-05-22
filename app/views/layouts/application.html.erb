@@ -7,23 +7,46 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
-<body class="<%= @current_action == 'index' ? 'white-bg' : 'body-bg' %>">
-<div class="navbar navbar-default">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 clearfix">
-        <a class="navbar-brand" href="<%= url_for root_path %>">ask<span>.me</span></a>
-        <div class="pull-right link-login">
-          <span>Have an account?</span>
-          <button class="btn btn-default btn-login" id="modal-trigger">Login</button>
-        </div>
-      </div>
+<body class="<%= @current_action == 'home' ? 'white-bg' : 'body-bg' %>">
+
+<% if current_user %>
+    <%= render 'shared/navbar_in' %>
+<% else %>
+    <%= render 'shared/navbar_in' %>
+<% end %>
+
+
+<%= yield %>
+
+<footer class="container">
+  <div class="row secondary-nav">
+    <div class="col-md-12">
+      <ul class="list-inline">
+        <li><a href="#">About</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Safety Center</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+      <ul class="list-inline">
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Cookie Policy</a></li>
+        <li><a href="#">Contact Us / Help</a></li>
+        <li><a href="#" data-toggle="modal" data-target="#lang-modal">Language: <span class="lang-active">English</span></a></li>
+      </ul>
     </div>
-  </div>
-</div> <!-- end of navbar -->
-
-  <%= yield %>
-
+  </div> <!-- end of row/secondary-nav -->
+  <div class="row social-and-copy clearfix">
+    <div class="col-md-12">
+      <ul class="social-media pull-left list-inline">
+        <li><a href="#"><%= image_tag "facebook.png" %></a></li>
+        <li><a href="#"><%= image_tag "twitter.png" %></a></li>
+        <li><a href="#"><%= image_tag "instagram.png" %></a></li>
+        <li><a href="#"><%= image_tag "askme.png" %></a></li>
+      </ul>
+      <p class="copyrights pull-right">&copy; Ask.me 2015</p>
+    </div>
+  </div> <!-- end of row/social-and-copy -->
+</footer>
 
 <%= javascript_include_tag 'application'%>
 </body>
