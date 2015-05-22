@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get ':username/gifts', to: 'profile#gifts', as: 'profile_gifts'
   get ':username/best', to: 'profile#best', as: 'profile_best'
   post ':username/follow', to: 'profile#follow', as: 'profile_follow'
+  post ':username/ask', to: 'profile#ask', as: 'profile_ask'
   get ':username', to: 'profile#answers', as: 'profile_answers'
 
   root 'home#home'

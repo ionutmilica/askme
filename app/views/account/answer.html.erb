@@ -5,7 +5,7 @@
       <div class="questions-to-reply">
         <p>
           <strong><%= @question.question %> </strong>
-          <%= link_to @question.sender.username, profile_answers_path(@question.sender.username) %>
+          <%= format_question_sender_link @question %>
         </p>
         <div class="meta">
           <span class="text-muted"><%= time_ago_in_words @question.created_at %></span>

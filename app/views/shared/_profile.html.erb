@@ -50,18 +50,18 @@
 <div class="row post-question">
   <div class="col-md-12">
     <h4><strong>Amaze me</strong></h4>
-    <form action="#">
+    <%= form_for(Question.new, url: profile_ask_url) do |f| %>
       <div class="panel panel-default">
         <label for="question" class="sr-only">Question:</label>
-        <textarea name="" id="question" name="question"></textarea>
+        <%= f.text_area :question %>
         <div class="panel-footer clearfix">
           <span class="pull-left letters-left">300</span>
           <div class="pull-right">
-            <label class="check"><input type="checkbox" name="anonymous-question">Anonymous Question</label>
-            <button type="submit" class="btn btn-primary">Ask</button>
+            <label class="check"><%= f.check_box :anonymous %>Anonymous Question</label>
+            <%= f.submit 'Ask', :class => 'btn btn-primary' %>
           </div>
         </div>
       </div>
-    </form>
+    <% end %>
   </div>
-</div> <!-- end of post-question -->
+</div>

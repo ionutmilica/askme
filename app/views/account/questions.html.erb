@@ -10,7 +10,7 @@
           <span aria-hidden="true">&times;</span></button>
           <p>
             <strong><%= question.question %></strong>
-            <a href="<%= url_for profile_answers_path question.sender.username %>"><%= question.sender.username %></a>
+            <%= format_question_sender_link question %>
           </p>
           <div class="meta">
             <span class="text-muted"><%= time_ago_in_words question.created_at %> ago</span>
