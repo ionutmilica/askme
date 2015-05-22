@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations' }
 
   scope 'account' do
     get 'wall', to: 'account#wall', as: 'account_wall'
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     get 'questions/:id', to: 'account#question', as: 'account_question'
     get 'questions', to: 'account#questions', as: 'account_questions'
 
-    get 'follow', to: 'account#follow', as: 'account_follow'
+    get 'follows', to: 'account#follows', as: 'account_follow'
     get 'search', to: 'account#search', as: 'account_search'
     get 'settings', to: 'account#settings', as: 'account_settings'
 

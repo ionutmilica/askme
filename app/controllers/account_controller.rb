@@ -2,7 +2,6 @@ class AccountController < ApplicationController
   before_action :authenticate_user!
 
   def wall
-
   end
 
   def questions
@@ -24,8 +23,8 @@ class AccountController < ApplicationController
   end
 
 
-  def follow
-
+  def follows
+    @follows = Followership.follows current_user.id
   end
 
   def search

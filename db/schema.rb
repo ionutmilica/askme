@@ -11,9 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150519172005) do
+ActiveRecord::Schema.define(version: 20150521155300) do
 
-  create_table "questions.html.erb", force: :cascade do |t|
+  create_table "followerships", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "follower_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "questions", force: :cascade do |t|
     t.integer  "from"
     t.integer  "to"
     t.string   "question"
