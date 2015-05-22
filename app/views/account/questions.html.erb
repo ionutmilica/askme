@@ -6,8 +6,10 @@
       <ul class="list-unstyled">
         <% @unanswered.each do |question| %>
         <li>
-          <button type="button" class="close" aria-label="Close">
-          <span aria-hidden="true">&times;</span></button>
+
+          <a rel="nofollow" data-method="delete" href="<%= url_for account_delete_question_path(question.id) %>">
+            <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </a>
           <p>
             <strong><%= question.question %></strong>
             <%= format_question_sender_link question %>

@@ -39,4 +39,26 @@ class Question < ActiveRecord::Base
 
     question
   end
+
+  def self.delete_all_for_user(user_id)
+    delete_all to: user_id
+  end
+
+  def self.delete_for_user(question_id, user_id)
+    question = find_by_id question_id
+
+    if question and question.to == user_id and question.reply == nil
+      question.destroy
+    end
+  end
+
+  def self.delete_answer(question_id, user_id)
+    question = find_by_id question_id
+
+    if question and question.to == user_id
+      question.reply = nil
+      question.replied_at = nil
+      question.save
+    end
+  end
 end

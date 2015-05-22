@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     get 'questions/:id/answer', to: 'account#answer', as: 'account_answer'
     patch 'questions/:id/answer', to: 'account#do_answer', as: 'do_account_answer'
     get 'questions/:id', to: 'account#question', as: 'account_question'
+    delete 'questions/:id', to: 'account#delete_question', as: 'account_delete_question'
+    delete 'questions/:id/answer', to: 'account#delete_answer', as: 'account_delete_answer'
     get 'questions', to: 'account#questions', as: 'account_questions'
     delete 'questions', to: 'account#delete_questions', as: 'account_delete_questions'
 

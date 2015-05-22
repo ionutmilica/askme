@@ -9,7 +9,18 @@ class AccountController < ApplicationController
   end
 
   def delete_questions
+    Question.delete_all_for_user current_user.id
     redirect_to account_questions_path
+  end
+
+  def delete_question
+    Question.delete_for_user params[:id], current_user.id
+    redirect_to account_questions_path
+  end
+
+  def delete_answer
+    Question.delete_answer params[:id], current_user.id
+    redirect_to profile_answers_path current_user.username
   end
 
   def answer
