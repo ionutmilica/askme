@@ -1,0 +1,105 @@
+<div class="container main-content profile">
+  <div class="row user-information">
+    <div class="col-md-2">
+      <%= image_tag 'friend.jpg', :class => 'profile-picture' %>
+    </div>
+    <div class="col-md-6">
+      <strong class="profile-username">Ionut Milica</strong>
+      <span class="text-muted">| @<%= @user.username %></span>
+      <span class="display-block">Timisoara</span>
+
+      <p class="text-muted">
+        <em>
+          #21 ani, Liceul de bosi, zodia zeu, hashtag boaseDeFier
+        </em>
+      </p>
+      <a href="https://www.facebook.com/mionutc"><em>https://www.facebook.com/mionutc</em></a> <br/>
+      <a href="http://ionutmilica.com/"><em>www.ionut-jupânu'.com</em></a>
+    </div>
+    <div class="col-md-4">
+      <ul class="list-inline text-right trafic-info">
+        <li>
+          <a href="#">
+            <strong>3584</strong>
+            <span class="display-block">raspunsuri</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <strong>6208</strong>
+            <span class="display-block">aprecieri</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <strong>2</strong>
+            <span class="display-block">cadouri</span>
+          </a>
+        </li>
+      </ul>
+      <div class="actions text-right">
+        <button class="btn btn-default"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span></button>
+        <button class="btn btn-success">Follow</button>
+        <!-- <button class="btn btn-default">Unfollow</button> -->
+        <div class="drastic">
+          <a href="#"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>Block</a>
+          <a href="#"><span class="glyphicon glyphicon-flag" aria-hidden="true"></span>Report</a>
+        </div>
+      </div>
+    </div>
+  </div> <!-- end of user-information -->
+
+  <div class="row post-question">
+    <div class="col-md-12">
+      <h4><strong>Amaze me</strong></h4>
+      <form action="#">
+        <div class="panel panel-default">
+          <label for="question" class="sr-only">Question:</label>
+          <textarea name="" id="question" name="question"></textarea>
+          <div class="panel-footer clearfix">
+            <span class="pull-left letters-left">300</span>
+            <div class="pull-right">
+              <label class="check"><input type="checkbox" name="anonymous-question">Anonymous Question</label>
+              <button type="submit" class="btn btn-primary">Ask</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div> <!-- end of post-question -->
+
+  <div class="row answers">
+    <div class="col-md-12">
+      <h4><strong>answers</strong></h4>
+      <ul class="list-unstyled">
+        <li>
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <p><strong>Care este lucrul pe care-l cauta toata lumea?</strong></p>
+          <p>Fericire sau bani</p>
+          <div class="meta clearfix">
+            <span class="text-muted">acum aproximativ o ora</span>
+            <span class="text-muted pull-right"><a href="#">o persoana</a> apreciaza asta</span>
+          </div>
+        </li>
+        <li>
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <p><strong>Pareri?</strong></p>
+          <p>Da-mi un nume si-ti dau pareri</p>
+          <div class="meta clearfix">
+            <span class="text-muted">acum 2 zile</span>
+            <span class="text-muted pull-right"><a href="#"></a></span>
+          </div>
+        </li>
+        <li>
+          <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <p><strong>Dragostea este complicata? De ce?</strong></p>
+          <p>Nu dragostea e complicata, noi suntem aia complicati</p>
+          <div class="meta clearfix">
+            <span class="text-muted">acum 2 zile</span>
+            <span class="text-muted pull-right"><a href="#">o persoana</a> apreciaza asta</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div> <!-- end of answers -->
+</div> <!-- end main-content -->

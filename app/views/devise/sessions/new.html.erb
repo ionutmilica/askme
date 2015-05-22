@@ -9,15 +9,18 @@
       <%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <%= f.text_field :username %>
           <%= f.password_field :password %>
+          <% if devise_mapping.rememberable? %>
+            <%= f.check_box :remember_me %>
+          <% end %>
           <%= f.submit 'Sign in', :class => 'btn btn-success btn-block btn-lg' %>
       <% end %>
-    </div> <!-- end of col-md-6/register-form -->
+    </div>
     <div class="col-md-6 social-media-registration">
       <ul>
         <li><button class="btn btn-facebook btn-block"><span class="btn-icon">f</span><strong>Sign Up</strong> with <strong>Facebook</strong></button></li>
         <li><button class="btn btn-twitter btn-block"><span class="btn-icon">t</span><strong>Sign Up</strong> with <strong>Twitter</strong></button></li>
         <li><button class="btn btn-vk btn-block"><span class="btn-icon">B</span><strong>Sign Up</strong> with <strong>Vk.com</strong></button></li>
       </ul>
-    </div> <!-- end of col-md-6/social-media-registration -->
-  </div> <!-- end of row-->
-</div> <!-- end main-content -->
+    </div>
+  </div>
+</div>

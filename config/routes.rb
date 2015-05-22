@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users, controllers: { registrations: 'registrations' }
+  devise_for :users, controllers: { registrations: 'users/registrations',  sessions: 'users/sessions' }
 
   scope 'account' do
     get 'wall', to: 'account#wall', as: 'account_wall'
@@ -19,11 +19,11 @@ Rails.application.routes.draw do
   end
 
   # Users profile
-  get ':username/answer/:id', to: 'users#answer', as: 'users_answer'
-  get ':username/gifts', to: 'users#gifts', as: 'users_gifts'
-  get ':username/best', to: 'users#best', as: 'users_bets'
-  post ':username/follow', to: 'users#profile', as: 'users_follow'
-  get ':username', to: 'users#profile', as: 'users_profile'
+  get ':username/answer/:id', to: 'profile#answer', as: 'users_answer'
+  get ':username/gifts', to: 'profile#gifts', as: 'users_gifts'
+  get ':username/best', to: 'profile#best', as: 'users_bets'
+  post ':username/follow', to: 'profile#follow', as: 'users_follow'
+  get ':username', to: 'profile#answers', as: 'users_profile'
 
   root 'home#home'
 end
