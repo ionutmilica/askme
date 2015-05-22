@@ -13,7 +13,7 @@
             <a href="<%= url_for profile_answers_path question.sender.username %>"><%= question.sender.username %></a>
           </p>
           <div class="meta">
-            <span class="text-muted">acum 3 luni</span>
+            <span class="text-muted"><%= time_ago_in_words question.created_at %> ago</span>
           </div>
             <span class="actions">
               <%= link_to 'Answer', account_answer_path(question.id) %>

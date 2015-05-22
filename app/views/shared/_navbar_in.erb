@@ -27,19 +27,26 @@
         </div>
         <nav class="navbar-right logged-in-nav">
           <ul class="list-inline">
-            <li><a href="#">Home</a></li>
-            <li><a href="<%= url_for account_questions_path %>">Questions <span>(2)</span></a></li>
-            <li class="active">
-              <%= link_to 'Profile', profile_answers_path(current_user.username) %>
-            </li>
-            <li><a href="#">Friends</a></li>
-            <li><a href="#">Search</a></li>
-            <li><a href="#">Settings</a></li>
             <li>
-              <a href="#">
-                <span class="glyphicon glyphicon-log-out"></span>
-              </a>
-              <%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
+              <%= active_link_to 'Home', account_wall_path %>
+            </li>
+            <li>
+              <%= active_link_to ("Questions <span>(2)</span>").html_safe, account_questions_path  %>
+            </li>
+            <li>
+              <%= active_link_to 'Profile', profile_answers_path(current_user.username) %>
+            </li>
+            <li>
+              <%= active_link_to 'Friends', account_follow_path %>
+            </li>
+            <li>
+              <%= active_link_to 'Search', account_search_path %>
+            </li>
+            <li>
+              <%= active_link_to 'Settings', account_settings_path %>
+            </li>
+            <li>
+              <%= link_to ('<span class="glyphicon glyphicon-log-out"></span>').html_safe, destroy_user_session_path, :method => :delete %>
             </li>
           </ul>
         </nav>

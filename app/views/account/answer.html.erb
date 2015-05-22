@@ -1,9 +1,32 @@
-From: <%= @question.sender.username %> <br/>
-<%= @question.question %> <br/>
-
-<%= form_for(@question, url: account_answer_path(:id => @question.id), html: { method: :post }) do |f| %>
-    <div class="field">
-      <%= f.text_area :reply, autofocus: true %>
+<div class="container main-content reply">
+  <div class="row reply">
+    <div class="col-md-12">
+      <h4><strong>questions</strong></h4>
+      <div class="questions-to-reply">
+        <p>
+          <strong><%= @question.question %> </strong>
+          <%= link_to @question.sender.username, profile_answers_path(@question.sender.username) %>
+        </p>
+        <div class="meta">
+          <span class="text-muted"><%= time_ago_in_words @question.created_at %></span>
+        </div>
+      </div>
+      <%= form_for(@question, url: account_answer_path(:id => @question.id)) do |f| %>
+        <div class="panel panel-default">
+          <label for="question" class="sr-only">Question:</label>
+          <%= f.text_area :reply, autofocus: true %>
+          <div class="panel-footer clearfix">
+            <span class="pull-left btn-file">
+                 <input type="file" name="image">
+                 <span class="glyphicon glyphicon-camera"></span>
+                 <span class="upload-btn-text">Add an image</span>
+            </span>
+            <div class="pull-right">
+              <%= f.submit :Answer, :class => 'btn btn-primary' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
-    <%= f.submit :Answer %>
-<% end %>
+  </div> <!-- end of reply -->
+</div> <!-- end main-content -->
