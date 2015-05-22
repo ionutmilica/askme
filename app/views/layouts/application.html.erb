@@ -9,12 +9,7 @@
 </head>
 <body class="<%= @current_action == 'home' ? 'white-bg' : 'body-bg' %>">
 
-<% if current_user %>
-    <%= render 'shared/navbar_in' %>
-<% else %>
-    <%= render 'shared/navbar_in' %>
-<% end %>
-
+<%= render 'shared/navbar_' + (user_signed_in? ? 'in' : 'out') %>
 
 <%= yield %>
 

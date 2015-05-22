@@ -31,7 +31,12 @@
             <li><a href="#">Friends</a></li>
             <li><a href="#">Search</a></li>
             <li><a href="#">Settings</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-log-out"></span></a></li>
+            <li>
+              <a href="#">
+                <span class="glyphicon glyphicon-log-out"></span>
+              </a>
+              <%= link_to 'Logout', destroy_user_session_path, :method => :delete %>
+            </li>
           </ul>
         </nav>
       </div>

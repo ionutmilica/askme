@@ -1,8 +1,8 @@
 class HomeController < ApplicationController
   def home
-    if current_user
-      redirect_to account_wall_path
-    end
+      if user_signed_in?
+        redirect_to account_wall_path
+      end
   end
 
   def about

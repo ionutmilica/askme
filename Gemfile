@@ -4,6 +4,9 @@ gem 'rails', '4.2.1'
 
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'sass-rails', '~> 5.0'
+gem 'jquery-rails', '~> 4.0.3'
+gem 'jquery-ui-rails', '~> 5.0.5'
+
 gem 'bootstrap-sass'
 gem 'uglifier', '>= 1.3.0'
 gem 'jbuilder', '~> 2.0'
