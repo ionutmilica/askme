@@ -8,8 +8,9 @@
     <div class="col-md-6 register-form">
       <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= f.text_field :username %>
+          <%= f.text_field :fullname, :label => 'Full name' %>
           <%= f.password_field :password %>
-          <%= f.password_field :password_confirmation %>
+          <%= f.password_field :password_confirmation, :label => 'Repeat password' %>
           <%= f.email_field :email %>
           <span class="help-block">By clicking Sign up, you agree to our <a class="underline" href="#">Terms and Policies.</a></span>
           <%= f.submit 'Sign up', :class => 'btn btn-success btn-block btn-lg' %>

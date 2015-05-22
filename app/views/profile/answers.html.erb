@@ -4,17 +4,16 @@
       <%= image_tag 'friend.jpg', :class => 'profile-picture' %>
     </div>
     <div class="col-md-6">
-      <strong class="profile-username">Ionut Milica</strong>
+      <strong class="profile-username"><%= @user.fullname %></strong>
       <span class="text-muted">| @<%= @user.username %></span>
-      <span class="display-block">Timisoara</span>
+      <span class="display-block"><%= @user.location %></span>
 
       <p class="text-muted">
         <em>
-          #21 ani, Liceul de bosi, zodia zeu, hashtag boaseDeFier
+          <%= @user.description %>
         </em>
       </p>
-      <a href="https://www.facebook.com/mionutc"><em>https://www.facebook.com/mionutc</em></a> <br/>
-      <a href="http://ionutmilica.com/"><em>www.ionut-jupânu'.com</em></a>
+
     </div>
     <div class="col-md-4">
       <ul class="list-inline text-right trafic-info">
