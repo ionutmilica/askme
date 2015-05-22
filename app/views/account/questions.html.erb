@@ -1,0 +1,4 @@
+<% @unanswered.each do |question| %>
+   <% question.id %> <%= question.question %> posted by <%= question.sender.username %>
+    <br/>
+<% end %>

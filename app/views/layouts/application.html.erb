@@ -1,13 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Ask</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>askme, don't be shy</title>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="<%= @current_action == 'index' ? 'white-bg' : 'body-bg' %>">
+<div class="navbar navbar-default">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 clearfix">
+        <a class="navbar-brand" href="<%= url_for root_path %>">ask<span>.me</span></a>
+        <div class="pull-right link-login">
+          <span>Have an account?</span>
+          <button class="btn btn-default btn-login" id="modal-trigger">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> <!-- end of navbar -->
 
-<%= yield %>
+  <%= yield %>
 
+
+<%= javascript_include_tag 'application'%>
 </body>
 </html>

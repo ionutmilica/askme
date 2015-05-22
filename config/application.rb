@@ -22,5 +22,8 @@ module Ask
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    config.sass.preferred_syntax = :sass
+    config.sass.line_comments = false
+    config.sass.cache = false
   end
 end

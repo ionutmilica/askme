@@ -1,36 +1,29 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations' }
 
-  scope '/api' do
-    scope '/v1' do
-      # Token routes
-      scope '/token' do
-        as :user do
-          post 'create', to: 'sessions#create'
-          delete 'destroy', to: 'sessions#destroy'
-        end
-      end
-      scope '/users' do
-        as :user do
-          post 'create', to: 'registrations#create'
-          put 'update', to: 'registrations#update'
-          # Pages
-          get ':id/questions', to: 'users#questions'
-          post ':id/questions', to: 'users#post_question'
-        end
-      end
+  scope 'account' do
+    get 'wall', to: 'account#wall', as: 'account_wall'
 
-      scope '/user' do
-        get 'questions/unanswered', to: 'users#unanswered_questions'
-        post 'questions/:id/reply', to: 'users#reply_question'
-      end
+    # Questions from logged-in user perspective
 
-      scope '/questions' do
-        get ':id', to: 'questions#get_question'
-      end
-      #
-    end
+    get 'questions/:id/answer', to: 'account#answer', as: 'account_answer'
+    post 'questions/:id/answer', to: 'account#do_answer', as: 'do_account_answer'
+    get 'questions/:id', to: 'account#question', as: 'account_question'
+    get 'questions', to: 'account#questions', as: 'account_questions'
+
+    get 'follows', to: 'account#follows', as: 'account_follow'
+    get 'search', to: 'account#search', as: 'account_search'
+    get 'settings', to: 'account#settings', as: 'account_settings'
+
   end
+
+  # Users profile
+  get ':username/answer/:id', to: 'users#answer', as: 'users_answer'
+  get ':username/gifts', to: 'users#gifts', as: 'users_gifts'
+  get ':username/best', to: 'users#best', as: 'users_bets'
+  post ':username/follow', to: 'users#profile', as: 'users_follow'
+  get ':username', to: 'users#profile', as: 'users_profile'
+
   root 'home#index'
 end

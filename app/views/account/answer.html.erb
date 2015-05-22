@@ -1,0 +1,9 @@
+From: <%= @question.sender.username %> <br/>
+<%= @question.question %> <br/>
+
+<%= form_for(@question, url: account_answer_path(:id => @question.id), html: { method: :post }) do |f| %>
+    <div class="field">
+      <%= f.text_area :reply, autofocus: true %>
+    </div>
+    <%= f.submit :Answer %>
+<% end %>

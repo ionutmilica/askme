@@ -1,0 +1,27 @@
+<div class="container main-content create-account">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="title">create account</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 register-form">
+      <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= f.text_field :username %>
+          <%= f.password_field :password %>
+          <%= f.password_field :password_confirmation %>
+          <%= f.email_field :email %>
+          <span class="help-block">By clicking Sign up, you agree to our <a class="underline" href="#">Terms and Policies.</a></span>
+          <%= f.submit 'Sign up', :class => 'btn btn-success btn-block btn-lg' %>
+      <% end %>
+    </div> <!-- end of col-md-6/register-form -->
+    <div class="col-md-6 social-media-registration">
+      <ul>
+        <li><button class="btn btn-facebook btn-block"><span class="btn-icon">f</span><strong>Sign Up</strong> with <strong>Facebook</strong></button></li>
+        <li><button class="btn btn-twitter btn-block"><span class="btn-icon">t</span><strong>Sign Up</strong> with <strong>Twitter</strong></button></li>
+        <li><button class="btn btn-vk btn-block"><span class="btn-icon">B</span><strong>Sign Up</strong> with <strong>Vk.com</strong></button></li>
+      </ul>
+    </div> <!-- end of col-md-6/social-media-registration -->
+  </div> <!-- end of row-->
+</div> <!-- end main-content -->
+
