@@ -14,7 +14,9 @@
               <a href="<%= url_for account_questions_path %>">
                   <button class="btn btn-primary btn-sm">
                     <span class="glyphicon glyphicon-question-sign"></span>
-                    <span class="badge">2</span>
+                    <% if @unanswered.size > 0 %>
+                    <span class="badge"><%= @unanswered.size %></span>
+                    <% end %>
                   </button>
               </a>
             </li>
@@ -31,7 +33,7 @@
               <%= active_link_to 'Home', account_wall_path %>
             </li>
             <li>
-              <%= active_link_to ("Questions <span>(2)</span>").html_safe, account_questions_path  %>
+              <%= active_link_to ("Questions <span>(#{@unanswered.size})</span>").html_safe, account_questions_path  %>
             </li>
             <li>
               <%= active_link_to 'Profile', profile_answers_path(current_user.username) %>
