@@ -21,6 +21,9 @@ class ProfileController < ApplicationController
 
   private
     def question_params
+      if  user_signed_in? == false
+        params[:question]['anonymous'] = true
+      end
       params.require(:question).permit(:question, :anonymous)
     end
 

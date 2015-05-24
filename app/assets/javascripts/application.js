@@ -11,3 +11,10 @@
 // about supported directives.
 //= require jquery
 //= require jquery_ujs
+
+var counter = jQuery('#remaining')
+counter.html(counter.data('default-value'));
+jQuery('textarea.character-limit').bind('keyup', function() {
+    val = counter.data('default-value') - jQuery(this).val().length;
+	counter.html(val < 0 ? 0 : val);
+});

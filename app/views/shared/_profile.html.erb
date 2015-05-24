@@ -36,13 +36,15 @@
       </li>
     </ul>
     <div class="actions text-right">
-      <button class="btn btn-default"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span></button>
-      <button class="btn btn-success">Follow</button>
-      <!-- <button class="btn btn-default">Unfollow</button> -->
-      <div class="drastic">
-        <a href="#"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>Block</a>
-        <a href="#"><span class="glyphicon glyphicon-flag" aria-hidden="true"></span>Report</a>
-      </div>
+      <% if user_signed_in? %>
+          <button class="btn btn-default"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span></button>
+          <button class="btn btn-success">Follow</button>
+          <!-- <button class="btn btn-default">Unfollow</button> -->
+          <div class="drastic">
+            <a href="#"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>Block</a>
+            <a href="#"><span class="glyphicon glyphicon-flag" aria-hidden="true"></span>Report</a>
+          </div>
+      <% end %>
     </div>
   </div>
 </div> <!-- end of user-information -->
@@ -53,11 +55,13 @@
     <%= form_for(Question.new, url: profile_ask_url) do |f| %>
       <div class="panel panel-default">
         <label for="question" class="sr-only">Question:</label>
-        <%= f.text_area :question %>
+        <%= f.text_area :question, :class => 'character-limit' %>
         <div class="panel-footer clearfix">
-          <span class="pull-left letters-left">300</span>
+          <span id="remaining" class="pull-left letters-left character-count" data-default-value="300">300</span>
           <div class="pull-right">
+            <% if user_signed_in? %>
             <label class="check"><%= f.check_box :anonymous %>Anonymous Question</label>
+            <% end %>
             <%= f.submit 'Ask', :class => 'btn btn-primary' %>
           </div>
         </div>
