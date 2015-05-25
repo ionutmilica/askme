@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :validatable
 
-  validates :username, presence: true, length: {maximum: 255}, uniqueness: { case_sensitive: false }, format: { with: /\A[a-zA-Z0-9]*\z/, message: "may only contain letters and numbers." }
+  validates :username, presence: true, length: {minimum: 3, maximum: 30}, uniqueness: { case_sensitive: false }, format: { with: /\A[a-zA-Z0-9]*\z/, message: "may only contain letters and numbers." }
 
   has_many :send_questions, :class_name => 'Question', :foreign_key => 'from', :dependent => :nullify
   has_many :received_questions, :class_name => 'Question', :foreign_key => 'to', :dependent => :nullify
