@@ -8,6 +8,8 @@ gem 'jquery-rails', '~> 4.0.3'
 gem 'jquery-ui-rails', '~> 5.0.5'
 
 gem 'active_link_to'
+gem 'carrierwave'
+gem 'mini_magick'
 
 gem 'bootstrap-sass'
 gem 'uglifier', '>= 1.3.0'

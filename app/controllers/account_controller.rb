@@ -32,7 +32,7 @@ class AccountController < ApplicationController
   end
 
   def do_answer
-    Question.answer current_user.id, params[:id], params.require(:question).permit(:reply)
+    Question.answer current_user.id, params[:id], answer_params
     redirect_to account_questions_path
   end
 
@@ -49,4 +49,8 @@ class AccountController < ApplicationController
 
   end
 
+  private
+  def answer_params
+    params.require(:question).permit(:reply, :image)
+  end
 end

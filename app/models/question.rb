@@ -2,9 +2,7 @@ class Question < ActiveRecord::Base
   belongs_to :sender, :class_name => 'User', :foreign_key => 'from'
   belongs_to :receiver, :class_name => 'User', :foreign_key => 'to'
 
-  def profile
-
-  end
+  mount_uploader :image, ImageUploader
 
   def self.mine(user_id, question_id)
     where(to: user_id).where(id: question_id).first

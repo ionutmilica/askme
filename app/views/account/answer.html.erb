@@ -17,7 +17,7 @@
           <%= f.text_area :reply, autofocus: true %>
           <div class="panel-footer clearfix">
             <span class="pull-left btn-file">
-                 <input type="file" name="image">
+                 <%= f.file_field :image %>
                  <span class="glyphicon glyphicon-camera"></span>
                  <span class="upload-btn-text">Add an image</span>
             </span>
@@ -28,5 +28,5 @@
         </div>
       <% end %>
     </div>
-  </div> <!-- end of reply -->
-</div> <!-- end main-content -->
+  </div>
+</div>
