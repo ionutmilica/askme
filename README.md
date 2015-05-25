@@ -1,4 +1,8 @@
 ASKme
 ===
 
-ASKme it's a Ask.fm clone made only to learn Ruby & Ruby on Rails. <br/>
+ASKme it's a Ask.fm clone made for learning purposes. <br/>
+
+Dependencies:
+
+sudo apt-get install libmagickwand-dev imagemagick

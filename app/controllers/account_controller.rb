@@ -38,7 +38,7 @@ class AccountController < ApplicationController
 
 
   def follows
-    @follows = Followership.follows current_user.id
+    @follows = current_user.follows_by_type('User')
   end
 
   def search

@@ -1,4 +1,4 @@
 
 <% @follows.each do |follow| %>
-    * <%= follow.user.username %> <br/>
+    * <%= follow.followable.username %> <br/>
 <% end %>

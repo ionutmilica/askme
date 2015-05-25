@@ -45,11 +45,13 @@
       <% end %>
     </div>
   </div>
-</div> <!-- end of user-information -->
+</div>
 
 <div class="row post-question">
   <div class="col-md-12">
-    <h4><strong>Amaze me</strong></h4>
+    <h4>
+      <strong><%= @user.title %></strong>
+    </h4>
     <%= form_for(Question.new, url: profile_ask_url) do |f| %>
       <div class="panel panel-default">
         <label for="question" class="sr-only">Question:</label>

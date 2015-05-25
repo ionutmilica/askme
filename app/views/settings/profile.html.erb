@@ -1,0 +1,21 @@
+<div class="container main-content create-account">
+  <div class="row">
+    <div class="col-md-12">
+      <h3 class="title">Edit account</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <%= bootstrap_form_for(current_user,as: :user, url: account_settings_url, method: :patch) do |f| %>
+          <%= f.text_field :fullname, :label => 'Full name' %>
+          <%= f.text_field :location %>
+          <%= f.text_area :description, rows: 7 %>
+          <%= f.text_field :title %>
+
+          <%= f.email_field :email %>
+          <%= f.submit 'Update', :class => 'btn btn-success btn-block btn-lg' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
