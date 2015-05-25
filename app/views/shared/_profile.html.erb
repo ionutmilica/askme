@@ -18,22 +18,30 @@
     <ul class="list-inline text-right trafic-info">
       <li>
         <a href="<%= url_for profile_answers_path %>">
-          <strong>3584</strong>
+          <strong><%= @answers.count %></strong>
           <span class="display-block">answers</span>
         </a>
       </li>
       <li>
         <a href="<%= url_for profile_best_path %>">
-          <strong>6208</strong>
+          <strong><%= @user.total_likes %></strong>
           <span class="display-block">likes</span>
         </a>
       </li>
+      <% if user_signed_in? and current_user.id == @user.id %>
+        <li>
+          <strong><%= @user.followers_count %></strong>
+          <span class="display-block">followers</span>
+        </li>
+      <% end %>
     </ul>
     <div class="actions text-right">
-      <% if user_signed_in? %>
-          <button class="btn btn-success">Follow</button>
-          <!--
-          <button class="btn btn-default">Unfollow</button> -->
+      <% if user_signed_in? and current_user.id != @user.id %>
+          <% if current_user.following?(@user) %>
+              <%= link_to 'Unfollow', profile_unfollow_path, :class => 'btn btn-default', :method => :post %>
+          <% else %>
+              <%= link_to 'Follow', profile_follow_path, :class => 'btn btn-success', :method => :post %>
+          <% end %>
       <% end %>
     </div>
   </div>

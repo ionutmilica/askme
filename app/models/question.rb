@@ -1,6 +1,10 @@
 class Question < ActiveRecord::Base
+  acts_as_votable
   belongs_to :sender, :class_name => 'User', :foreign_key => 'from'
   belongs_to :receiver, :class_name => 'User', :foreign_key => 'to'
+
+  has_many :likes, :class_name => 'Like'
+
 
   mount_uploader :image, ImageUploader
 

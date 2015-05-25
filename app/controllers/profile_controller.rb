@@ -1,8 +1,9 @@
 class ProfileController < ApplicationController
   before_action :set_user
+  before_action :set_answers
 
   def answers
-    @answers = @user.received_questions.answered
+
   end
 
   def best
@@ -15,9 +16,22 @@ class ProfileController < ApplicationController
 
   def ask
     Question.create_question(@user, current_user, question_params)
-
     redirect_to profile_answers_path params[:username]
   end
+
+
+
+  def follow
+    current_user.follow @user
+    redirect_to profile_answers_path
+  end
+
+
+  def unfollow
+    current_user.stop_following @user
+    redirect_to profile_answers_path
+  end
+
 
   private
     def question_params
@@ -33,5 +47,9 @@ class ProfileController < ApplicationController
       if @user.nil?
         redirect_to root_path
       end
+    end
+
+    def set_answers
+      @answers = @user.received_questions.answered
     end
 end

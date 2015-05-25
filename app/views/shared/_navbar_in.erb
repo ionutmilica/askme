@@ -8,6 +8,9 @@
             <li>
               <button class="btn btn-primary btn-sm">
                 <span class="glyphicon glyphicon-heart"></span>
+                <% if @likes > 0 %>
+                    <span class="badge"><%= @likes %></span>
+                <% end %>
               </button>
             </li>
             <li>

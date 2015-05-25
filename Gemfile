@@ -11,6 +11,11 @@ gem 'active_link_to'
 gem 'carrierwave'
 gem 'mini_magick'
 
+# Likes && Followers
+
+gem 'acts_as_votable'
+gem 'acts_as_follower'
+
 gem 'bootstrap-sass'
 gem 'uglifier', '>= 1.3.0'
 gem 'jbuilder', '~> 2.0'

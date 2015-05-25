@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
     # Global data available to the current user
     if current_user
       @unanswered = current_user.received_questions.unanswered
+      @likes = current_user.total_likes
     end
   end
 end

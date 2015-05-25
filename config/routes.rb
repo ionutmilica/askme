@@ -15,6 +15,10 @@ Rails.application.routes.draw do
     get 'questions', to: 'account#questions', as: 'account_questions'
     delete 'questions', to: 'account#delete_questions', as: 'account_delete_questions'
 
+    # Like and unlike question
+    post 'questions/:id/like', to: 'account#like_question', as: 'like_question'
+    post 'questions/:id/unlike', to: 'account#unlike_question', as: 'unlike_question'
+
 
     get 'follows', to: 'account#follows', as: 'account_follow'
     get 'search', to: 'account#search', as: 'account_search'
@@ -27,6 +31,7 @@ Rails.application.routes.draw do
   get ':username/gifts', to: 'profile#gifts', as: 'profile_gifts'
   get ':username/best', to: 'profile#best', as: 'profile_best'
   post ':username/follow', to: 'profile#follow', as: 'profile_follow'
+  post ':username/unfollow', to: 'profile#unfollow', as: 'profile_unfollow'
   post ':username/ask', to: 'profile#ask', as: 'profile_ask'
   get ':username', to: 'profile#answers', as: 'profile_answers'
 

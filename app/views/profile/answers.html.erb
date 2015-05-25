@@ -24,7 +24,11 @@
           </p>
           <div class="meta clearfix">
             <span class="text-muted"><%= time_ago_in_words answer.replied_at %> ago</span>
-            <span class="text-muted pull-right"><a href="#">1 person</a> likes this</span>
+            <% if answer.cached_votes_up > 0 %>
+            <span class="text-muted pull-right">
+              <a href="#"><%= pluralize(answer.cached_votes_up, 'person', 'persons') %></a> likes this
+            </span>
+            <% end %>
           </div>
         </li>
         <% end %>
