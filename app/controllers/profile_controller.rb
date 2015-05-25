@@ -21,7 +21,7 @@ class ProfileController < ApplicationController
 
   private
     def question_params
-      if  user_signed_in? == false
+      unless  user_signed_in?
         params[:question]['anonymous'] = true
       end
       params.require(:question).permit(:question, :anonymous)
@@ -29,5 +29,9 @@ class ProfileController < ApplicationController
 
     def set_user
       @user = User.find_by_username params[:username]
+
+      if @user.nil?
+        redirect_to root_path
+      end
     end
 end
