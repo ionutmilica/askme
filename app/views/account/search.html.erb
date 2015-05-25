@@ -1,0 +1,54 @@
+<div class="container main-content">
+  <div class="row search">
+    <div class="col-md-12 clearfix">
+      <h4><strong>search</strong></h4>
+
+      <%= form_tag account_do_search_url :method => :post %>
+        <div class="form-group">
+          <label for="search" class="sr-only">Search</label>
+          <div class="input-group">
+            <div class="input-group-addon">
+              <span class="glyphicon glyphicon-search"></span>
+            </div>
+            <input type="search" class="form-control" name="query" id="search" placeholder="Find people by username">
+            <div class="input-group-btn">
+              <button type="submit" class="btn btn-default">Search</button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <% if @users.length > 0 %>
+  <div class="row search-results">
+    <div class="col-md-12">
+      <h5><strong>Search results (<span><%= @users.length %></span>)</strong></h5>
+      <ul class="list-unstyled">
+        <% @users.each do |user| %>
+        <li class="clearfix">
+          <a href="#" class="go-to">
+            <img src="<%= user.avatar.url %>" class="friend-avatar pull-left" alt="friend avatar">
+          </a>
+          <div class="meta pull-left">
+            <a href="<%= url_for profile_answers_path(user.username) %>" class="go-to">
+              <strong class="profile-username"><%= user.fullname %></strong>
+              <span class="text-muted">| @<%= user.username %></span>
+            </a>
+            <span class="display-block"><%= user.location %></span>
+
+            <p class="text-muted">
+              <em>
+                <%= user.description %>
+              </em>
+            </p>
+          </div>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <% end %>
+
+</div>

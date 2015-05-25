@@ -27,4 +27,8 @@ class User < ActiveRecord::Base
       where(conditions).first
     end
   end
+
+  def self.search(query, current)
+    where(['username LIKE ?', "%#{query}%"]).where.not(id: current)
+  end
 end

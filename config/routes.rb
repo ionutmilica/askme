@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
     get 'follows', to: 'account#follows', as: 'account_follow'
     get 'search', to: 'account#search', as: 'account_search'
+    post 'search', to: 'account#do_search', as: 'account_do_search'
+
 
     scope 'settings' do
       get 'profile', to: 'settings#profile', as: 'account_settings'

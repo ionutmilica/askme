@@ -1,6 +1,7 @@
 class ProfileController < ApplicationController
   before_action :set_user
   before_action :set_answers
+  before_filter :authenticate_user!, only: [:ask, :follow, :unfollow]
 
   def answers
 

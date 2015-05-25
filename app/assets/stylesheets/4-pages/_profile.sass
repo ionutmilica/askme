@@ -61,10 +61,21 @@
 
 		&:hover
 			button.close
-				display: block
+				display: block !important
+
+			.btn-like
+				visibility: visible
 
 	p
 		margin: 8px 0px
 
+	.btn-like
+		visibility: hidden
+		margin-right: -5px
+
+	.btn-like.liked
+		visibility: visible
+		color: #ea5e5e
+		
 .meta
 	font-size: 12px

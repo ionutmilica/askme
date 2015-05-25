@@ -42,11 +42,13 @@ class AccountController < ApplicationController
   end
 
   def search
-
+    @users = []
   end
 
-  def settings
+  def do_search
+    @users = User.search params[:query], current_user.id
 
+    render 'account/search'
   end
 
   private
