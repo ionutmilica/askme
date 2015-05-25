@@ -1,6 +1,6 @@
 <div class="row user-information">
   <div class="col-md-2">
-    <%= image_tag 'friend.jpg', :class => 'profile-picture' %>
+    <%= image_tag @user.avatar.url, :class => 'profile-picture' %>
   </div>
   <div class="col-md-6">
     <strong class="profile-username"><%= @user.fullname %></strong>
