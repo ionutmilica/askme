@@ -2,10 +2,10 @@
   <div class="row answers">
     <div class="col-md-12">
       <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-          <h4><a href="#answers" role="tab" data-toggle="tab"><strong>Account</strong></a></h4>
-        </li>
         <li>
+          <h4><a href="<%= account_settings_url %>" role="tab" data-toggle="tab"><strong>Account</strong></a></h4>
+        </li>
+        <li class="active">
           <h4><a href="<%= account_settings_avatar_update_url %>" role="tab" data-toggle="tab"><strong>Avatar</strong></a></h4>
         </li>
       </ul>
@@ -13,13 +13,10 @@
   </div>
   <div class="row">
     <div class="col-md-6">
-      <%= bootstrap_form_for(current_user,as: :user, url: account_settings_url, method: :patch) do |f| %>
-          <%= f.text_field :fullname, :label => 'Full name' %>
-          <%= f.text_field :location %>
-          <%= f.text_area :description, rows: 7 %>
-          <%= f.text_field :title %>
-
-          <%= f.email_field :email %>
+      <%= bootstrap_form_for(current_user,as: :user, url: account_settings_avatar_update_path, method: :patch,  html: { multipart: true }) do |f| %>
+          <%= image_tag(current_user.avatar_url) %>
+          <%= f.file_field :avatar%>
+          <%= f.hidden_field :avatar_cache %>
           <%= f.submit 'Update', :class => 'btn btn-success btn-block btn-lg' %>
       <% end %>
     </div>

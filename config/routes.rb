@@ -26,6 +26,10 @@ Rails.application.routes.draw do
     scope 'settings' do
       get 'profile', to: 'settings#profile', as: 'account_settings'
       patch 'profile', to: 'settings#update_profile', as: 'account_settings_update'
+      # Avatar
+      get 'avatar', to: 'settings#avatar', as: 'account_settings_avatar'
+      patch 'avatar', to: 'settings#update_avatar', as: 'account_settings_avatar_update'
+
     end
   end
 
