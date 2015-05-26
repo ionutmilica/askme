@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150526091100) do
+ActiveRecord::Schema.define(version: 20150526094409) do
 
   create_table "followerships", force: :cascade do |t|
     t.integer  "user_id"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20150526091100) do
     t.integer  "user_id"
     t.integer  "question_id"
     t.integer  "who_id"
-    t.integer  "type"
+    t.integer  "kind"
     t.boolean  "seen"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

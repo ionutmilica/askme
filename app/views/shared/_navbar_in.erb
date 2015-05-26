@@ -26,6 +26,9 @@
             <li>
               <button class="btn btn-primary btn-sm">
                 <span class="glyphicon glyphicon-share-alt"></span>
+                <% if @replies > 0 %>
+                    <span class="badge"><%= @replies %></span>
+                <% end %>
               </button>
             </li>
           </ul>

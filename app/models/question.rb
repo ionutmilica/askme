@@ -34,6 +34,7 @@ class Question < ActiveRecord::Base
 
     if question
       question.update!(params)
+      Notification.reply(question)
     end
 
     question

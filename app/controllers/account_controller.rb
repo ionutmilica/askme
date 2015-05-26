@@ -32,7 +32,7 @@ class AccountController < ApplicationController
   end
 
   def do_answer
-    Question.answer current_user.id, params[:id], answer_params
+    Question.answer(current_user.id, params[:id], answer_params)
     redirect_to account_questions_path
   end
 

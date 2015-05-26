@@ -21,6 +21,7 @@ class ApplicationController < ActionController::Base
     if current_user
       @unanswered = current_user.received_questions.unanswered
       @likes = current_user.total_likes
+      @replies = current_user.total_replies
     end
   end
 end

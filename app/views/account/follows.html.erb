@@ -14,11 +14,11 @@
 
         <% @follows.each do |follow| %>
       <li class="clearfix">
-          <a href="#" class="go-to">
+          <a href="<%= profile_answers_path follow.followable.username %>" class="go-to">
             <img src="<%= follow.followable.avatar.url %>" class="friend-avatar pull-left" alt="friend avatar">
           </a>
           <div class="meta pull-left">
-            <a href="#" class="go-to">
+            <a href="<%= profile_answers_path follow.followable.username %>" class="go-to">
               <strong class="profile-username"><%= follow.followable.fullname %></strong>
               <span class="text-muted">| @<%= follow.followable.username %></span>
             </a>

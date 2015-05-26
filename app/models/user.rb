@@ -13,11 +13,11 @@ class User < ActiveRecord::Base
 
 
   def total_likes
-    total = 0
-    received_questions.each do |question|
-      total += question.cached_votes_up
-    end
-    total
+    Notification.unseen_likes(id).length
+  end
+
+  def total_replies
+    Notification.unseen_replies(id).length
   end
 
   def self.find_first_by_auth_conditions(warden_conditions)
