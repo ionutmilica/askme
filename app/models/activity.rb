@@ -14,6 +14,6 @@ class Activity < ActiveRecord::Base
     user.follows_by_type('User').each do |follower|
       ids.append follower.followable.id
     end
-    where(user_id: ids)
+    where(user_id: ids).group(:question_id)
   end
 end
