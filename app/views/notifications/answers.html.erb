@@ -1,0 +1,28 @@
+<div class="container main-content wall">
+  <div class="row answers">
+    <div class="col-md-12" role="tabpanel">
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="answers">
+          <ul class="list-unstyled">
+            <% @notifications.each do |notification| %>
+                <li>
+                  <%= render 'shared/delete_question', {answer: notification.question} %>
+                  <img src="<%= notification.question.receiver.avatar.url %>" class="friend-avatar pull-left" alt="friend picture">
+                  <p><strong><%= notification.question.question %></strong></p>
+                  <p><%= notification.question.reply %></p>
+                  <div class="meta clearfix">
+                    <span class="text-muted"><%= time_ago_in_words notification.question.replied_at %> ago</span>
+                    <a href="<%= profile_answers_url(notification.question.receiver.username) %>">
+                      <%= notification.question.receiver.username %>
+                    </a>
+                    <%= render 'shared/like', {answer: notification.question} %>
+                  </div>
+                </li>
+            <% end %>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

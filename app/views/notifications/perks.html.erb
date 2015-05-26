@@ -1,0 +1,26 @@
+<div class="container main-content">
+  <div class="row notifications-list">
+    <div class="col-md-12 clearfix">
+      <h4><strong>notifications</strong></h4>
+      <ul class="list-unstyled">
+        <% @notifications.each do |notification| %>
+            <li class="clearfix">
+              <a href="#" class="go-to">
+                <img src="<%= notification.user.avatar_url %>" class="friend-avatar pull-left img60_60" alt="friend avatar">
+              </a>
+              <div class="meta pull-left">
+                <p>
+                  <a href="#"><%= notification.user.username %></a>
+                  likes your
+                  <%= link_to 'answer', profile_show_answer_path(notification.user.username, notification.question.id) %>
+                </p>
+                <p class="text-muted">
+                  <%= time_ago_in_words notification.question.replied_at %>
+                </p>
+              </div>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

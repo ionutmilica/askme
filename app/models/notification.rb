@@ -1,5 +1,8 @@
 class Notification < ActiveRecord::Base
 
+  belongs_to :question
+  belongs_to :user
+
   def self.like(user, question)
     n = Notification.new
     n.user_id = question.to
@@ -23,14 +26,14 @@ class Notification < ActiveRecord::Base
   end
 
   def self.likes(user)
+    set_seen(user, 1)
     likes = get_notifications(user, 1)
-    #set_seen(user, 1)
     return likes
   end
 
   def self.replies(user)
+    set_seen(user, 2)
     replies = get_notifications(user, 2)
-    #set_seen(user, 2)
     return replies
   end
 

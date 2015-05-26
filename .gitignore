@@ -19,3 +19,4 @@ rerun.txt
 bower.json
 .powenv
 public/assets/**
+public/uploads/**

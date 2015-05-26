@@ -6,12 +6,14 @@
         <div class="notifications navbar-left">
           <ul class="list-inline">
             <li>
+              <a href="<%= account_notifications_perks_url %>">
               <button class="btn btn-primary btn-sm">
                 <span class="glyphicon glyphicon-heart"></span>
                 <% if @likes > 0 %>
                     <span class="badge"><%= @likes %></span>
                 <% end %>
               </button>
+              </a>
             </li>
             <li>
               <a href="<%= account_questions_url %>">
@@ -24,12 +26,14 @@
               </a>
             </li>
             <li>
+              <a href="<%= account_notifications_answers_url %>" >
               <button class="btn btn-primary btn-sm">
                 <span class="glyphicon glyphicon-share-alt"></span>
                 <% if @replies > 0 %>
                     <span class="badge"><%= @replies %></span>
                 <% end %>
               </button>
+              </a>
             </li>
           </ul>
         </div>

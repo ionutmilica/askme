@@ -6,8 +6,8 @@ class SettingsController < ApplicationController
   end
 
   def update_profile
-    current_user.update profile_params
-    redirect_to account_settings_path
+    current_user.update_attributes profile_params
+    render 'settings/profile'
   end
 
   def avatar
@@ -16,7 +16,7 @@ class SettingsController < ApplicationController
 
   def update_avatar
     current_user.update params.require(:user).permit(:avatar)
-    redirect_to account_settings_avatar_path
+    render 'settings/avatar'
   end
 
   protected
