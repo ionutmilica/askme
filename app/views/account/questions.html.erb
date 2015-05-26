@@ -7,7 +7,7 @@
         <% @unanswered.each do |question| %>
         <li>
 
-          <a rel="nofollow" data-method="delete" href="<%= url_for account_delete_question_path(question.id) %>">
+          <a rel="nofollow" data-method="delete" href="<%= account_delete_question_url(question.id) %>">
             <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           </a>
           <p>

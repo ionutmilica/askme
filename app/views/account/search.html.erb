@@ -32,7 +32,7 @@
             <img src="<%= user.avatar.url %>" class="friend-avatar pull-left" alt="friend avatar">
           </a>
           <div class="meta pull-left">
-            <a href="<%= url_for profile_answers_path(user.username) %>" class="go-to">
+            <a href="<%= profile_answers_url(user.username) %>" class="go-to">
               <strong class="profile-username"><%= user.fullname %></strong>
               <span class="text-muted">| @<%= user.username %></span>
             </a>

@@ -2,10 +2,10 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 clearfix">
-        <a class="navbar-brand" href="<%= url_for root_path %>">ask<span>.me</span></a>
+        <a class="navbar-brand" href="<%= root_url %>">ask<span>.me</span></a>
         <div class="pull-right link-login">
           <span>Have an account?</span>
-          <a href="<%= url_for new_user_session_path %>">
+          <a href="<%= new_user_session_url %>">
             <button class="btn btn-default btn-login" id="modal-trigger">Login</button>
           </a>
         </div>

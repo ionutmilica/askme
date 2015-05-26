@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 clearfix">
-        <a class="navbar-brand" href="<%= url_for account_wall_path %>">ask<span>.me</span></a>
+        <a class="navbar-brand" href="<%= account_wall_url %>">ask<span>.me</span></a>
         <div class="notifications navbar-left">
           <ul class="list-inline">
             <li>
@@ -14,7 +14,7 @@
               </button>
             </li>
             <li>
-              <a href="<%= url_for account_questions_path %>">
+              <a href="<%= account_questions_url %>">
                   <button class="btn btn-primary btn-sm">
                     <span class="glyphicon glyphicon-question-sign"></span>
                     <% if @unanswered.size > 0 %>
