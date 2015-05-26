@@ -1,6 +1,7 @@
 class AccountController < ApplicationController
   before_action :authenticate_user!
 
+
   def wall
     @stream = Activity.get_stream_for_user current_user
   end
@@ -11,16 +12,19 @@ class AccountController < ApplicationController
 
   def delete_questions
     Question.delete_all_for_user current_user.id
+
     redirect_to account_questions_path
   end
 
   def delete_question
     Question.delete_for_user params[:id], current_user.id
+
     redirect_to account_questions_path
   end
 
   def delete_answer
     Question.delete_answer params[:id], current_user.id
+
     redirect_to profile_answers_path current_user.username
   end
 
@@ -34,6 +38,7 @@ class AccountController < ApplicationController
 
   def do_answer
     Question.answer(current_user.id, params[:id], answer_params)
+
     redirect_to account_questions_path
   end
 

@@ -10,6 +10,8 @@
 
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="answers">
+
+          <% if @stream.length > 0 %>
           <ul class="list-unstyled">
             <% @stream.each do |activity| %>
             <li>
@@ -27,6 +29,9 @@
             </li>
             <% end %>
           </ul>
+          <% else %>
+              <%= render 'shared/empty' %>
+          <% end %>
         </div>
 
       </div>

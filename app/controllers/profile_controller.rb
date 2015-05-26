@@ -4,23 +4,16 @@ class ProfileController < ApplicationController
   before_filter :authenticate_user!, only: [:ask, :follow, :unfollow]
 
   def answers
-
   end
 
   def best
-
-  end
-
-  def gifts
-
+    @best = @user.received_questions.best
   end
 
   def ask
     Question.create_question(@user, current_user, question_params)
     redirect_to profile_answers_path params[:username]
   end
-
-
 
   def follow
     current_user.follow @user

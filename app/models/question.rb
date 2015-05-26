@@ -17,6 +17,10 @@ class Question < ActiveRecord::Base
     where(replied_at: nil, reply: nil)
   end
 
+  def self.best
+    self.answered.order('cached_votes_total DESC')
+  end
+
   def self.create_question(user, current, params)
     question = Question.new
     question.from = current.nil? ? nil : current.id

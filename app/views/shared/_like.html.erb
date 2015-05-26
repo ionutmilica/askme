@@ -6,6 +6,6 @@
 
 <span class="text-muted pull-right who-likes-<%= answer.id %>">
   <% if answer.cached_votes_up > 0 %>
-    <a href="#"><%= pluralize(answer.cached_votes_up, 'person', 'persons') %></a> likes this
+    <%= pluralize(answer.cached_votes_up, 'person likes', 'persons like') %> this
   <% end %>
 </span>

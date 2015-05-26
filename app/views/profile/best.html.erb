@@ -1,3 +1,33 @@
 <div class="container main-content profile">
   <%= render 'shared/profile' %>
-</div> <!-- end main-content -->
+
+  <div class="row answers">
+    <div class="col-md-12">
+      <h4><strong>answers</strong></h4>
+      <ul class="list-unstyled">
+        <% @best.each do |answer| %>
+            <li>
+              <%= render 'shared/delete_question', {answer: answer} %>
+              <p>
+                <strong><%= answer.question %></strong>
+                <%= format_question_sender_link answer %>
+              </p>
+              <p><%= answer.reply %></p>
+              <p>
+                <% if answer.image and answer.image.url %>
+                    <a href="<%= answer.image.url %>" target="_blank">
+                      <%= image_tag answer.image.thumb.url %>
+                    </a>
+                <% end %>
+              </p>
+              <div class="meta clearfix">
+                <span class="text-muted"><%= time_ago_in_words answer.replied_at %> ago</span>
+
+                <%= render 'shared/like', {answer: answer} %>
+              </div>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
