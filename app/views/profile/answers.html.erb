@@ -7,9 +7,7 @@
       <ul class="list-unstyled">
         <% @answers.each do |answer| %>
         <li>
-          <a rel="nofollow" data-method="delete" href="<%= account_delete_answer_url(answer.id) %>">
-            <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          </a>
+          <%= render 'shared/delete_question', {answer: answer} %>
           <p>
             <strong><%= answer.question %></strong>
             <%= format_question_sender_link answer %>

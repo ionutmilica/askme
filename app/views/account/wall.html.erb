@@ -1,1 +1,35 @@
-Wall
+<div class="container main-content wall">
+  <div class="row answers">
+    <div class="col-md-12" role="tabpanel">
+      <%= link_to 'Ask friends a questions', account_follow_path, :class => 'btn btn-primary btn-sm pull-right btn-ask' %>
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+          <h4><a href="#answers" role="tab" data-toggle="tab"><strong>answers</strong></a></h4>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="answers">
+          <ul class="list-unstyled">
+            <% @stream.each do |activity| %>
+            <li>
+              <%= render 'shared/delete_question', {answer: activity.question} %>
+              <img src="<%= activity.question.receiver.avatar.url %>" class="friend-avatar pull-left" alt="friend picture">
+              <p><strong><%= activity.question.question %></strong></p>
+              <p><%= activity.question.reply %></p>
+              <div class="meta clearfix">
+                <span class="text-muted"><%= time_ago_in_words activity.question.replied_at %> ago</span>
+                <a href="<%= profile_answers_url(activity.question.receiver.username) %>">
+                    <%= activity.question.receiver.username %>
+                </a>
+                <%= render 'shared/like', {answer: activity.question} %>
+              </div>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

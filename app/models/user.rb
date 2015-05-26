@@ -20,6 +20,12 @@ class User < ActiveRecord::Base
     Notification.unseen_replies(id).length
   end
 
+  def create_like(question)
+    likes question
+    Notification.like(id, question)
+    Activity.log(id, question.id)
+  end
+
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if username = conditions.delete(:username)

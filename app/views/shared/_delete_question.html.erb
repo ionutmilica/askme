@@ -1,0 +1,6 @@
+
+<% if current_user and answer.receiver.id == current_user.id %>
+    <a rel="nofollow" data-method="delete" href="<%= account_delete_answer_url(answer.id) %>">
+      <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    </a>
+<% end %>

@@ -2,6 +2,7 @@ class AccountController < ApplicationController
   before_action :authenticate_user!
 
   def wall
+    @stream = Activity.get_stream_for_user current_user
   end
 
   def questions

@@ -3,6 +3,8 @@
     <div class="col-md-12 clearfix">
       <button class="btn btn-primary btn-sm pull-right ocassional-question">Get random question</button>
       <h4><strong>questions</strong></h4>
+
+      <% if @unanswered.length > 0 %>
       <ul class="list-unstyled">
         <% @unanswered.each do |question| %>
         <li>
@@ -27,6 +29,12 @@
                   account_delete_questions_path, :method => :delete %>
         </li>
       </ul>
+      <% else %>
+          <div class="col-md-12 no-questions">
+            <h4 class="link">ask.me/<%= current_user.username %></h4>
+            <p>This is the link to your profile. Share it with your friends to get more questions.</p>
+          </div>
+    <% end %>
     </div>
   </div>
 </div>

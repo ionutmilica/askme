@@ -1,8 +1,8 @@
 class Question < ActiveRecord::Base
-  acts_as_votable
   belongs_to :sender, :class_name => 'User', :foreign_key => 'from'
   belongs_to :receiver, :class_name => 'User', :foreign_key => 'to'
 
+  acts_as_votable
   mount_uploader :image, ImageUploader
 
   def self.mine(user_id, question_id)
@@ -34,6 +34,7 @@ class Question < ActiveRecord::Base
 
     if question
       question.update!(params)
+      Activity.log(user_id, question_id)
       Notification.reply(question)
     end
 
