@@ -26,6 +26,12 @@ class ProfileController < ApplicationController
     redirect_to profile_answers_path
   end
 
+  def answer
+    @answer = Question.find_by_id params[:id]
+    unless @answer
+      redirect_to profile_answers_path
+    end
+  end
 
   private
     def question_params

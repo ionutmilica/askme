@@ -41,7 +41,6 @@ Rails.application.routes.draw do
   get ':username/answer/:id', to: 'profile#answer', as: 'profile_answer'
   get ':username/gifts', to: 'profile#gifts', as: 'profile_gifts'
   get ':username/best', to: 'profile#best', as: 'profile_best'
-  get ':username/answer/:id', to: 'profile#show_answer', as: 'profile_show_answer'
   post ':username/follow', to: 'profile#follow', as: 'profile_follow'
   post ':username/unfollow', to: 'profile#unfollow', as: 'profile_unfollow'
   post ':username/ask', to: 'profile#ask', as: 'profile_ask'

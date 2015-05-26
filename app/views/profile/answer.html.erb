@@ -1,0 +1,22 @@
+<div class="container main-content profile">
+  <%= render 'shared/profile' %>
+
+  <div class="row single-answer">
+  <div class="col-md-12">
+    <p>
+      <strong><%= @answer.question %></strong>
+      <%= format_question_sender_link @answer %>
+    </p>
+    <p>
+      <%= @answer.reply %>
+    </p>
+    <div class="meta clearfix">
+      <span class="text-muted">
+        <%= time_ago_in_words @answer.replied_at %>
+      </span>
+
+      <%= render 'shared/like', {answer: @answer} %>
+    </div>
+  </div>
+</div>
+</div>
