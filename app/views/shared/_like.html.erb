@@ -1,0 +1,11 @@
+
+<% if current_user.id != @user.id %>
+    <button answer-id="<%= answer.id %>" type="button" class="glyphicon glyphicon-heart btn-like pull-right <%= current_user.voted_for?(answer) ? 'liked' : '' %>">
+    </button>
+<% end %>
+
+<span class="text-muted pull-right who-likes-<%= answer.id %>">
+  <% if answer.cached_votes_up > 0 %>
+    <a href="#"><%= pluralize(answer.cached_votes_up, 'person', 'persons') %></a> likes this
+  <% end %>
+</span>

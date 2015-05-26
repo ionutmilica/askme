@@ -1,4 +1,40 @@
+<div class="container main-content">
+  <div class="row friends-list">
+    <div class="col-md-12 clearfix">
+      <a href="<%= account_search_url %>" class="btn btn-primary btn-sm btn-find pull-right">
+        <span class="glyphicon glyphicon-plus"></span>
+        Find friends
+      </a>
+      <h4>
+        <strong>friends (<span><%= @follows.length %></span>)</strong>
+      </h4>
 
-<% @follows.each do |follow| %>
-    * <%= follow.followable.username %> <br/>
-<% end %>
+      <p class="text-muted note"><em>Your friends do not know you follow them. It is absolutely anonymous.</em></p>
+      <ul class="list-unstyled">
+
+        <% @follows.each do |follow| %>
+      <li class="clearfix">
+          <a href="#" class="go-to">
+            <img src="<%= follow.followable.avatar.url %>" class="friend-avatar pull-left" alt="friend avatar">
+          </a>
+          <div class="meta pull-left">
+            <a href="#" class="go-to">
+              <strong class="profile-username"><%= follow.followable.fullname %></strong>
+              <span class="text-muted">| @<%= follow.followable.username %></span>
+            </a>
+            <span class="display-block"><%= follow.followable.location %></span>
+
+            <p class="text-muted">
+              <em>
+                <%= follow.followable.description %>
+              </em>
+            </p>
+          </div>
+          <%= render 'shared/follow', {user: follow.followable} %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div> <!-- end of friends-list -->
+</div> <!-- end main-content -->
+

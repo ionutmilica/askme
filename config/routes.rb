@@ -16,9 +16,7 @@ Rails.application.routes.draw do
     delete 'questions', to: 'account#delete_questions', as: 'account_delete_questions'
 
     # Like and unlike question
-    post 'questions/:id/like', to: 'account#like_question', as: 'like_question'
-    post 'questions/:id/unlike', to: 'account#unlike_question', as: 'unlike_question'
-
+    post 'questions/:id/like', to: 'likes#like', as: 'like_question'
 
     get 'follows', to: 'account#follows', as: 'account_follow'
     get 'search', to: 'account#search', as: 'account_search'

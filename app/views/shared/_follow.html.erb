@@ -1,0 +1,11 @@
+<% if current_user.following? user %>
+    <button user-id="<%= user.username %>" type="button" style="display: none;" class="btn btn-success pull-right follow u-<%= user.username %>">
+      Folow
+    </button>
+    <button user-id="<%= user.username %>" type="button" class="btn btn-default pull-right unfollow u-<%= user.username %>">
+      Unfolow
+    </button>
+<% else %>
+    <button user-id="<%= user.username %>" type="button" class="btn btn-success pull-right follow u-<%= user.username %>">Folow</button>
+    <button user-id="<%= user.username %>" type="button" style="display: none;" class="btn btn-default pull-right unfollow u-<%= user.username %>">Unfolow</button>
+<% end %>
