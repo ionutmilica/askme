@@ -3,7 +3,7 @@
 
   <div class="row single-answer">
   <div class="col-md-12">
-    <%= render 'shared/question', {answer: answer} %>
+    <%= render 'shared/question', {answer: @answer} %>
     <div class="meta clearfix">
       <span class="text-muted">
         <%= time_ago_in_words @answer.replied_at %>
