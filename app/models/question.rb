@@ -1,24 +1,26 @@
 class Question < ActiveRecord::Base
   belongs_to :sender, :class_name => 'User', :foreign_key => 'from'
-  belongs_to :receiver, :class_name => 'User', :foreign_key => 'to'
+  belongs_to :receiver, :class_name => 'User', :foreign_key => 'to', :dependent => :destroy
 
   acts_as_votable
   mount_uploader :image, ImageUploader
+
+  validates :question, presence: true
 
   def self.mine(user_id, question_id)
     where(to: user_id).where(id: question_id).first
   end
 
   def self.answered
-    where.not(reply: nil, replied_at: nil)
+    where.not(reply: nil, replied_at: nil).order('id DESC')
   end
 
   def self.unanswered
-    where(replied_at: nil, reply: nil)
+    where(replied_at: nil, reply: nil).order('id DESC')
   end
 
   def self.best
-    self.answered.order('cached_votes_total DESC')
+    where.not(reply: nil, replied_at: nil).order('cached_votes_total DESC')
   end
 
   def self.create_question(user, current, params)
@@ -64,6 +66,9 @@ class Question < ActiveRecord::Base
       question.reply = nil
       question.replied_at = nil
       question.save
+
+      Activity.delete_all(question_id: question_id)
+      Notification.delete_all(question_id: question_id)
     end
   end
 end

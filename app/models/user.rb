@@ -8,11 +8,9 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, length: {minimum: 3, maximum: 30}, uniqueness: { case_sensitive: false }, format: { with: /\A[a-zA-Z0-9]*\z/, message: "may only contain letters and numbers." }
   validates :fullname, presence: true
-  validates :location, presence: true
 
   has_many :send_questions, :class_name => 'Question', :foreign_key => 'from', :dependent => :nullify
   has_many :received_questions, :class_name => 'Question', :foreign_key => 'to', :dependent => :nullify
-
 
   def total_likes
     Notification.unseen_likes(id).length

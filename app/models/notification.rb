@@ -1,7 +1,7 @@
 class Notification < ActiveRecord::Base
 
-  belongs_to :question
-  belongs_to :user
+  belongs_to :question, :dependent => :destroy
+  belongs_to :user, :dependent => :destroy
 
   def self.like(user, question)
     n = Notification.new

@@ -1,6 +1,7 @@
 class Activity < ActiveRecord::Base
 
-  belongs_to :question
+  belongs_to :question, :dependent => :destroy
+  belongs_to :user, :dependent => :destroy
 
   def self.log(user, question)
     activity = Activity.new

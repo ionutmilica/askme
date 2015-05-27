@@ -7,7 +7,6 @@
   <div class="row">
     <div class="col-md-6 register-form">
       <%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <%= flash_messages %>
           <%= f.text_field :username %>
           <%= f.password_field :password %>
           <% if devise_mapping.rememberable? %>

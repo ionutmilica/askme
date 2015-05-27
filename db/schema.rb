@@ -20,13 +20,6 @@ ActiveRecord::Schema.define(version: 20150526134839) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "followerships", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "follower_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "follows", force: :cascade do |t|
     t.integer  "followable_id",                   null: false
     t.string   "followable_type",                 null: false
@@ -39,14 +32,6 @@ ActiveRecord::Schema.define(version: 20150526134839) do
 
   add_index "follows", ["followable_id", "followable_type"], name: "fk_followables"
   add_index "follows", ["follower_id", "follower_type"], name: "fk_follows"
-
-  create_table "likes", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "question_id"
-    t.string   "integer"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
 
   create_table "notifications", force: :cascade do |t|
     t.integer  "user_id"
