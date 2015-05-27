@@ -26,3 +26,8 @@ questions = [
 questions.each do |question|
   RandomQuestion.add question
 end
+
+# -- Sed users -- #
+
+User.create! :fullname => 'Ionut Milica', :username => 'ionutmilica', :email => 'ionut.milica@gmail.com', :password => 'oparolanoua', :password_confirmation => 'oparolanoua'
+User.create! :fullname => 'Catalin Milica', :username => 'catalin', :email => 'ionut_gerrard@yahoo.com', :password => 'oparolanoua', :password_confirmation => 'oparolanoua'
