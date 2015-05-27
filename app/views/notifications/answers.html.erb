@@ -8,8 +8,9 @@
                 <li>
                   <%= render 'shared/delete_question', {answer: notification.question} %>
                   <img src="<%= notification.question.receiver.avatar.url %>" class="friend-avatar pull-left" alt="friend picture">
-                  <p><strong><%= notification.question.question %></strong></p>
-                  <p><%= notification.question.reply %></p>
+
+                  <%= render 'shared/question', {answer: notification.question} %>
+
                   <div class="meta clearfix">
                     <span class="text-muted"><%= time_ago_in_words notification.question.replied_at %> ago</span>
                     <a href="<%= profile_answers_url(notification.question.receiver.username) %>">

@@ -1,0 +1,27 @@
+var emojies = [
+<% Emoji.all.each do |emoji| %>'<%= emoji.name %>', <% end %>
+];
+
+var unicodes = [
+    <% Emoji.all.each do |emoji| %>'<%= emoji.image_filename %>', <% end %>
+];
+
+$('.emoji').textcomplete([
+    {
+        match: /\B:([\-+\w]*)$/,
+        search: function (term, callback) {
+            callback($.map(emojies, function (emoji) {
+                return emoji.indexOf(term) === 0 ? emoji : null;
+            }));
+        },
+        template: function (value) {
+            var path = unicodes[emojies.indexOf(value)];
+            console.log(path);
+            return '<img src="/images/emoji/'+ path +'" style="vertical-align:middle" width="20" height="20">' + value;
+        },
+        replace: function (value) {
+            return ':' + value + ': ';
+        },
+        index: 1
+    }
+]);

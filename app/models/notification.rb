@@ -18,7 +18,7 @@ class Notification < ActiveRecord::Base
     if question.from.nil?
       return
     end
-    
+
     n = Notification.new
     n.user_id = question.from
     n.who_id = question.to

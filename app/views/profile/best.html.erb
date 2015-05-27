@@ -8,11 +8,7 @@
         <% @best.each do |answer| %>
             <li>
               <%= render 'shared/delete_question', {answer: answer} %>
-              <p>
-                <strong><%= answer.question %></strong>
-                <%= format_question_sender_link answer %>
-              </p>
-              <p><%= answer.reply %></p>
+              <%= render 'shared/question', {answer: answer} %>
               <p>
                 <% if answer.image and answer.image.url %>
                     <a href="<%= answer.image.url %>" target="_blank">

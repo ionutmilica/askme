@@ -55,7 +55,7 @@
     <%= form_for(Question.new, url: profile_ask_url) do |f| %>
       <div class="panel panel-default">
         <label for="question" class="sr-only">Question:</label>
-        <%= f.text_area :question, :class => 'character-limit' %>
+        <%= f.text_area :question, :class => 'emoji character-limit' %>
         <div class="panel-footer clearfix">
           <span id="remaining" class="pull-left letters-left character-count" data-default-value="300">300</span>
           <div class="pull-right">

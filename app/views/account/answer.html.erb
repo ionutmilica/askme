@@ -4,7 +4,7 @@
       <h4><strong>questions</strong></h4>
       <div class="questions-to-reply">
         <p>
-          <strong><%= @question.question %> </strong>
+          <strong><%= emojify @question.question %> </strong>
           <%= format_question_sender_link @question %>
         </p>
         <div class="meta">
@@ -14,7 +14,7 @@
       <%= form_for(@question, url: account_answer_path(:id => @question.id)) do |f| %>
         <div class="panel panel-default">
           <label for="question" class="sr-only">Question:</label>
-          <%= f.text_area :reply, autofocus: true %>
+          <%= f.text_area :reply, autofocus: true, :class => 'emoji' %>
           <div class="panel-footer clearfix">
             <span class="pull-left btn-file">
                  <%= f.file_field :image %>
