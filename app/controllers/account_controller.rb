@@ -10,6 +10,12 @@ class AccountController < ApplicationController
     @unanswered = current_user.received_questions.unanswered
   end
 
+  def random_question
+    Question.create_random current_user
+
+    redirect_to account_questions_path
+  end
+
   def delete_questions
     Question.delete_all_for_user current_user.id
 

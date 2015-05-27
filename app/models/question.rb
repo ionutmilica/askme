@@ -33,6 +33,14 @@ class Question < ActiveRecord::Base
     question.save
   end
 
+  def self.create_random(user)
+    params = {
+        :anonymous => 1,
+        :question  => RandomQuestion.random.question
+    }
+    self.create_question(user, nil, params)
+  end
+
   def self.answer(user_id, question_id, params)
     params[:replied_at] = Time.now
 

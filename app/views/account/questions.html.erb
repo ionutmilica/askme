@@ -1,7 +1,8 @@
 <div class="container main-content questions">
   <div class="row answers">
     <div class="col-md-12 clearfix">
-      <button class="btn btn-primary btn-sm pull-right ocassional-question">Get random question</button>
+
+      <%= link_to 'Get random question', account_random_question_path, :class => 'btn btn-primary btn-sm pull-right ocassional-question', :method => :post %>
       <h4><strong>questions</strong></h4>
 
       <% if @unanswered.length > 0 %>

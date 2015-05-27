@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150526134839) do
+ActiveRecord::Schema.define(version: 20150527113146) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
@@ -62,6 +62,12 @@ ActiveRecord::Schema.define(version: 20150526134839) do
   add_index "questions", ["cached_votes_score"], name: "index_questions_on_cached_votes_score"
   add_index "questions", ["cached_votes_total"], name: "index_questions_on_cached_votes_total"
   add_index "questions", ["cached_votes_up"], name: "index_questions_on_cached_votes_up"
+
+  create_table "random_questions", force: :cascade do |t|
+    t.string   "question"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
