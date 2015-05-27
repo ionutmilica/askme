@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users, controllers: { registrations: 'users/registrations',  sessions: 'users/sessions' }
+  devise_for :users, controllers: { registrations: 'users/registrations',  sessions: 'users/sessions', passwords: 'users/passwords' }
 
   scope 'account' do
     get 'wall', to: 'account#wall', as: 'account_wall'

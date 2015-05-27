@@ -28,12 +28,21 @@ class User < ActiveRecord::Base
     Activity.log(id, question.id)
   end
 
+  def self.get_random(limit = 15)
+    self.order_by_rand.limit(limit)
+  end
+
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
-    if username = conditions.delete(:username)
-      where(conditions).where(["lower(username) = :value", { :value =>username.downcase }]).first
+    if login = conditions.delete(:login)
+      where(conditions).where(['username = :value OR email = :value', { :value => login.downcase }]).first
     else
-      where(conditions).first
+      if conditions[:username].nil?
+        puts conditions
+        where(conditions).first
+      else
+        where(username: conditions[:username]).first
+      end
     end
   end
 

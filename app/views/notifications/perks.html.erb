@@ -12,7 +12,7 @@
                 <p>
                   <a href="#"><%= notification.user.username %></a>
                   likes your
-                  <%= link_to 'answer', profile_show_answer_path(notification.user.username, notification.question.id) %>
+                  <%= link_to 'answer', profile_answer_path(notification.user.username, notification.question.id) %>
                 </p>
                 <p class="text-muted">
                   <%= time_ago_in_words notification.question.replied_at %>

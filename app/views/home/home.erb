@@ -26,18 +26,11 @@
     <div class="row friends">
         <div class="col-md-12">
           <ul class="list-inline">
-            <li><a href="#"><%= image_tag "friend.jpg" %></a></li>
-            <li><a href="#"><%= image_tag "friend.jpg" %></a></li>
-            <li><a href="#"><%= image_tag "friend.jpg" %></a></li>
-            <li><a href="#"><%= image_tag "friend.jpg" %></a></li>
-            <li><a href="#"><%= image_tag "friend.jpg" %></a></li>
-            <li><a href="#"><%= image_tag "friend.jpg" %></a></li>
-            <li><a href="#"><%= image_tag "friend.jpg" %></a></li>
-            <li><a href="#"><%= image_tag "friend.jpg" %></a></li>
-            <li><a href="#"><%= image_tag "friend.jpg" %></a></li>
-            <li><a href="#"><%= image_tag "friend.jpg" %></a></li>
-            <li><a href="#"><%= image_tag "friend.jpg" %></a></li>
-            <li><a href="#"><%= image_tag "friend.jpg" %></a></li>
+            <% @users.each do |user| %>
+                <li>
+                  <a href="<%= profile_answers_path(user.username) %>"><%= image_tag user.avatar_url %></a>
+                </li>
+            <% end %>
           </ul>
         </div>
     </div> <!-- end of row/friends -->

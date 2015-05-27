@@ -1,7 +1,7 @@
 class ProfileController < ApplicationController
   before_action :set_user
   before_action :set_answers
-  before_filter :authenticate_user!, only: [:ask, :follow, :unfollow]
+  before_filter :authenticate_user!, only: [:follow, :unfollow]
 
   def answers
   end
@@ -36,7 +36,7 @@ class ProfileController < ApplicationController
   private
     def question_params
       unless  user_signed_in?
-        params[:question]['anonymous'] = true
+        params[:question]['anonymous'] = 1
       end
       params.require(:question).permit(:question, :anonymous)
     end

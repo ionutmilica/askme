@@ -1,5 +1,5 @@
 
-<% if current_user.id !=answer.receiver.id %>
+<% if user_signed_in? and  current_user.id !=answer.receiver.id %>
     <button answer-id="<%= answer.id %>" type="button" class="glyphicon glyphicon-heart btn-like pull-right <%= current_user.voted_for?(answer) ? 'liked' : '' %>">
     </button>
 <% end %>

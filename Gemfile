@@ -15,6 +15,7 @@ gem 'mini_magick'
 
 gem 'acts_as_votable'
 gem 'acts_as_follower'
+gem 'randumb'
 
 gem 'bootstrap-sass'
 gem 'uglifier', '>= 1.3.0'
